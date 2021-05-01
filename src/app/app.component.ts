@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'bs-root',
-  templateUrl: './app.component.html',
-  styles: []
+  template: '<bs-vaccination-list></bs-vaccination-list>'
 })
 export class AppComponent {
-  title = 'angularCorana21';
+
 }
