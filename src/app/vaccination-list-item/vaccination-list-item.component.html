@@ -1,13 +1,28 @@
 <div class="list-item">
-  <div class="item-">Impfung #{{ vacc.vaccination_nr }}</div>
-  <div class="description"> {{ vacc.vaccination_type }} </div>
-  <div class="place">
-    <span>{{ vacc.vaccination_place.city}}</span>
-    <span>{{ vacc.vaccination_place.street}}</span>
-    <span>{{ vacc.vaccination_place.streetnr}}</span>
-    <span>{{ vacc.vaccination_place.postcode}}</span>
-    <span>{{ vacc.vaccination_place.state}}</span>
-    <span>{{ vacc.vaccination_place.description}}</span>
+  <div class="list-item-nr">
+    <h3>Impfung #{{ vacc.vaccination_nr }}</h3>
+  </div>
+
+  <div class="list-item-infos">
+
+    <div class="list-item-vaccination_infos">
+      <div class="list-item-date">
+        <p><span class="list-item-date_label">Wann: </span>{{ vacc.date }}</p>
+        <p><span class="list-item-starttime_label">Start: </span>{{ vacc.starttime }}</p>
+        <p><span class="list-item-endtime_label">Ende: </span>{{ vacc.endtime }}</p>
+      </div>
+      <div class="list-item-type">
+        <p><span class="list-item-type_label">Impfstoff: </span>{{ vacc.vaccination_type }}</p>
+      </div>
+    </div>
+
+    <div class="list-item-place_infos">
+      <p class="list-item-place_infos_label">Wo:</p>
+      <p class="list-item-state"><span class="list-item-state_label">Bundesstaat: </span>{{ vacc.vaccination_place.state }}</p>
+      <p class="list-item-city"><span class="list-item-city_label">Stadt: </span>{{ vacc.vaccination_place.city }}</p>
+      <p class="list-item-postcode"><span class="list-item-postcode_label">Postleitzahl: </span>{{ vacc.vaccination_place.postcode }}</p>
+    </div>
 
   </div>
+
 </div>

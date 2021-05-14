@@ -1,0 +1,48 @@
+.list-item {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #f5f1eb;
+}
+
+.list-item-nr {
+  margin-bottom: 15px;
+}
+
+.list-item-infos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-item-vaccination_infos {
+  width: 220px;
+  margin-right: 200px;
+}
+
+.list-item-place_infos {
+  width: 220px;
+}
+
+.list-item-date, .list-item-type, .list-item-place_infos_label {
+  margin-bottom: 5px;
+}
+
+.list-item-date_label, .list-item-type_label,
+.list-item-starttime_label, .list-item-endtime_label,
+.list-item-state_label, .list-item-city_label, .list-item-postcode_label {
+  font-weight: bold;
+}
+
+.list-item-place_infos_label {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 679px) {
+  .list-item-infos {
+    flex-direction: column;
+  }
+
+  .list-item-vaccination_infos {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
