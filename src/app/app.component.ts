@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
+import { Vaccination } from "./shared/vaccination";
 
 @Component({
   selector: 'bs-root',
-  template: '<bs-vaccination-list></bs-vaccination-list>'
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

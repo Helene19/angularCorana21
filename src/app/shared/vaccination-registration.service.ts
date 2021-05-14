@@ -8,6 +8,7 @@ import { catchError, retry} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VaccinationRegistrationService {
+  vaccinations: Vaccination[];
 
   private api = 'https://corana21.s1810456033.student.kwmhgb.at/api'
 
@@ -15,6 +16,11 @@ export class VaccinationRegistrationService {
 
   getAll() : Observable<Array<Vaccination>> {
     return this.http.get(`${this.api}/vaccinations`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  getSingle(vaccinationNr : number) : Observable<Vaccination> {
+    return this.http.get(`${this.api}/vaccination/${vaccinationNr}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 

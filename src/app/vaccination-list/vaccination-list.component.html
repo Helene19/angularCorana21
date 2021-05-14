@@ -1,13 +1,7 @@
 <div class="ui middle aligned selection divided list">
-  <p>works</p>
-  <a *ngFor="let vacc of vaccinations" class="item">
-    <div class="content">
-      <div class="header">Impfung #{{ vacc.vaccination_nr }}</div>
-      <div class="description"> {{ vacc.vaccination_type }} </div>
-      <div class="place">
-        <span *ngFor="let place of vacc.vaccination_place">{{ place.vaccination_place_nr }}</span>
-      </div>
+  <a *ngFor="let vaccination of vaccinations" class="item bs-vaccination-list-item"
+     [vacc]="vaccination" (click)="showDetails(vaccination)" [routerLink]="vaccination.vaccination_nr">
 
-    </div>
   </a>
+
 </div>

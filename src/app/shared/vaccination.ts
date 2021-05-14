@@ -1,7 +1,6 @@
 import { VaccinationPlace } from "./vaccination-place";
-import { User } from "./user";
-
 export { VaccinationPlace } from "./vaccination-place";
+import { User } from "./user";
 export { User } from "./user";
 
 export class Vaccination {
@@ -14,7 +13,7 @@ export class Vaccination {
     public endtime: string,
     public max_participants: number,
     public vaccination_type: string,
-    public vaccination_place: VaccinationPlace[],
+    public vaccination_place: VaccinationPlace,
     public users: User[]
   ) {
   }

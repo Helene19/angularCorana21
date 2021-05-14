@@ -1,0 +1,14 @@
+<div class="content" *ngIf="vaccination">
+  <div class="header">Impfung #{{ vaccination.vaccination_nr }}</div>
+  <div class="description"> {{ vaccination.vaccination_type }} </div>
+  <div class="place">
+    <span>{{ vaccination.vaccination_place.city}}</span>
+    <span>{{ vaccination.vaccination_place.street}}</span>
+    <span>{{ vaccination.vaccination_place.streetnr}}</span>
+    <span>{{ vaccination.vaccination_place.postcode}}</span>
+    <span>{{ vaccination.vaccination_place.state}}</span>
+    <span>{{ vaccination.vaccination_place.description}}</span>
+
+  </div>
+  <button [routerLink]="'/vaccinations'">Zurück zur Buchliste</button>
+</div>
