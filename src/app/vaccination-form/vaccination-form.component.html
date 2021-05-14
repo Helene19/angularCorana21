@@ -1,0 +1,54 @@
+<h1>Impftermin</h1>
+<form class="ui large form" [formGroup]="vaccinationForm"
+      (ngSubmit)="submitForm()">
+  <input type="hidden" name="id">
+  <div class="field" [class.disabled]="isUpdatingBook">
+    <label>Impfterminnummer:</label>
+    <input type="number" formControlName="vaccination_nr">
+    <div *ngIf="errors.vaccination_nr" class="ui negative message"> {{ errors.vaccination_nr
+      }} </div>
+  </div>
+  <div class="field">
+    <label>Datum des Impftermins:</label>
+    <input type="date" formControlName="date">
+    <div *ngIf="errors.date" class="ui negative message">{{
+      errors.date }}</div>
+  </div>
+  <div class="field">
+    <label>Startzeitpunkt des Impftermins:</label>
+    <input formControlName="starttime">
+    <div *ngIf="errors.starttime" class="ui negative message">{{
+      errors.starttime }}</div>
+  </div>
+  <div class="field">
+    <label>Endzeitpunkt des Impftermins:</label>
+    <input formControlName="endtime">
+    <div *ngIf="errors.endtime" class="ui negative message">{{
+      errors.endtime }}</div>
+  </div>
+  <div class="field">
+    <label>maximale Anzahl an Teilnehmer*innen:</label>
+    <input type="number" formControlName="max_participants">
+    <div *ngIf="errors.max_participants" class="ui negative message">{{
+      errors.max_participants }}</div>
+  </div>
+  <div class="field">
+    <label>Impfstofff:</label>
+    <input formControlName="vaccination_type">
+    <div *ngIf="errors.vaccination_type" class="ui negative message">{{
+      errors.vaccination_type }}</div>
+  </div>
+  <div class="field">
+    <label>Impfort:</label>
+    <select formControlName="vaccination_place">
+      <option value="">Wähle einen Impfort</option>
+      <option *ngFor="let place of vaccination_place" [value]="place">
+        {{ place.vaccination_place_nr }}
+      </option>
+    </select>
+    <div *ngIf="errors.vaccination_place" class="ui negative message">{{ errors.vaccination_place
+      }}</div>
+  </div>
+  <button type="submit" class="ui button"
+          [disabled]="vaccinationForm.invalid">Speichern</button>
+</form>

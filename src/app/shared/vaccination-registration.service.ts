@@ -38,6 +38,11 @@ export class VaccinationRegistrationService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  check(vaccinationNr: number): Observable<Boolean> {
+    return this.http.get<Boolean>(`${this.api}/vaccinations/checknr/${vaccinationNr}`)
+      .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }

@@ -10,6 +10,8 @@ import { VaccinationDetailsComponent } from './vaccination-details/vaccination-d
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { VaccinationFormComponent } from './vaccination-form/vaccination-form.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -18,11 +20,12 @@ import { AppRoutingModule } from "./app-routing.module";
     VaccinationListComponent,
     VaccinationListItemComponent,
     VaccinationDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    VaccinationFormComponent
 
   ],
   imports: [
-    BrowserModule, HttpClientModule, NgbModule, AppRoutingModule
+    BrowserModule, HttpClientModule, NgbModule, AppRoutingModule, ReactiveFormsModule
   ],
   providers: [VaccinationRegistrationService],
   bootstrap: [AppComponent]
