@@ -5,8 +5,7 @@ import { VaccinationRegistrationService } from "../shared/vaccination-registrati
 @Component({
   selector: 'bs-vaccination-list',
   templateUrl: './vaccination-list.component.html',
-  styles: [
-  ]
+  styleUrls: ['./vaccination-list.component.css']
 })
 export class VaccinationListComponent implements OnInit {
 

@@ -3,8 +3,8 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@ang
 import { ActivatedRoute, Router } from "@angular/router";
 import { VaccinationFactory } from "../shared/vaccination-factory";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
-import {Vaccination} from "../shared/vaccination";
-import {VaccinationFormErrorMessages} from "./vaccination-form-error-messages";
+import {Vaccination, VaccinationPlace} from "../shared/vaccination";
+import { VaccinationFormErrorMessages } from "./vaccination-form-error-messages";
 
 @Component({
   selector: 'bs-vaccination-form',
@@ -16,6 +16,7 @@ export class VaccinationFormComponent implements OnInit {
 
   vaccinationForm: FormGroup;
   vaccination = VaccinationFactory.empty();
+  vaccinationPlaces: VaccinationPlace[];
   errors: { [key: string]: string } = {};
   isUpdatingVaccination = false;
 
@@ -55,17 +56,16 @@ export class VaccinationFormComponent implements OnInit {
 
     this.vaccinationForm.statusChanges.subscribe(() =>
       this.updateErrorMessages());
+    this.vr.getAllPlaces().subscribe(res => this.vaccinationPlaces = res);
   }
 
   submitForm() {
 
-    this.vaccinationForm.value.vaccination_place = this.vaccinationForm.value.vaccination_place.filter(
-      place => place.vaccination_place_nr
-    );
-
     const vaccination: Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
 
     vaccination.vaccination_place = this.vaccinationForm.value.vaccination_place;
+
+    vaccination.users = this.vaccination.users;
     console.log(vaccination);
 
     if (this.isUpdatingVaccination) {
@@ -88,7 +88,7 @@ export class VaccinationFormComponent implements OnInit {
   }
 
   updateErrorMessages() {
-    console.log("Is invalid? " + this.vaccinationForm.invalid);
+
     this.errors = {};
 
     for (const message of VaccinationFormErrorMessages) {

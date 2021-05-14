@@ -1,6 +1,14 @@
-<div class="ui two item tabs menu">
-  <a routerLink="home" routerLinkActive="active" class="item">Home</a>
-  <a routerLink="vaccinations" routerLinkActive="active" class="item">Impftermine</a>
-  <a routerLink="admin" routerLinkActive="active" class="item">Admin</a>
+<div class="header">
+  <img class="logo" src="assets/images/logo.png" alt="Logo"/>
+  <div class="headline-container">
+    <h1 class="headline">Impfanmeldungsplattform</h1>
+  </div>
+</div>
+<div class="navigation">
+  <div class="nav-links">
+    <a routerLink="home" routerLinkActive="active" class="link">Home</a>
+    <a routerLink="vaccinations" routerLinkActive="active" class="link">Impftermine</a>
+    <a routerLink="admin" routerLinkActive="active" class="link">Admin</a>
+  </div>
 </div>
 <router-outlet></router-outlet>

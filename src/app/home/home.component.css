@@ -1,0 +1,28 @@
+
+.home-headline {
+  color: #DB3B18;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.home-text {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-small_headline, .home-last_sentence {
+  margin-bottom: 10px;
+}
+
+.home-info {
+  margin-bottom: 15px;
+}
+
+.home-more_infos {
+  margin-bottom: 5px;
+}
+
+.home-last_sentence, .home-team {
+  font-weight: bold;
+}

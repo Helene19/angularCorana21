@@ -1,11 +1,11 @@
-<div class="ui middle aligned selection divided list">
+<div class="list">
   <a *ngFor="let vaccination of vaccinations" class="item bs-vaccination-list-item"
      [vacc]="vaccination" (click)="showDetails(vaccination)" [routerLink]="vaccination.vaccination_nr">
   </a>
 
-  <div *ngIf="!vaccinations" class="ui active dimmer">
+  <div *ngIf="!vaccinations">
     <div class="ui large text loader">Daten werden geladen...</div>
   </div>
-  <p *ngIf="vaccinations && !vaccinations.length">Es stehen noch keine Impftermine zur Verfügung.</p>
+  <p *ngIf="vaccinations && !vaccinations.length" class="list-no_items">Es stehen noch keine Impftermine zur Verfügung.</p>
 
 </div>

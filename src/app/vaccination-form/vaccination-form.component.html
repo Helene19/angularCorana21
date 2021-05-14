@@ -2,7 +2,7 @@
 <form class="ui large form" [formGroup]="vaccinationForm"
       (ngSubmit)="submitForm()">
   <input type="hidden" name="id">
-  <div class="field" [class.disabled]="isUpdatingBook">
+  <div class="field" [class.disabled]="isUpdatingVaccination">
     <label>Impfterminnummer:</label>
     <input type="number" formControlName="vaccination_nr">
     <div *ngIf="errors.vaccination_nr" class="ui negative message"> {{ errors.vaccination_nr
@@ -33,7 +33,7 @@
       errors.max_participants }}</div>
   </div>
   <div class="field">
-    <label>Impfstofff:</label>
+    <label>Impfstoff:</label>
     <input formControlName="vaccination_type">
     <div *ngIf="errors.vaccination_type" class="ui negative message">{{
       errors.vaccination_type }}</div>
@@ -42,8 +42,8 @@
     <label>Impfort:</label>
     <select formControlName="vaccination_place">
       <option value="">Wähle einen Impfort</option>
-      <option *ngFor="let place of vaccination_place" [value]="place">
-        {{ place.vaccination_place_nr }}
+      <option *ngFor="let vaccination_place of vaccinationPlaces" [value]="vaccination_place">
+        {{ vaccination_place.vaccination_place_nr }}, {{ vaccination_place.state}}, {{ vaccination_place.city }}, {{ vaccination_place.street }} {{ vaccination_place.streetnr }}
       </option>
     </select>
     <div *ngIf="errors.vaccination_place" class="ui negative message">{{ errors.vaccination_place

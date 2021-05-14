@@ -19,6 +19,11 @@ export class VaccinationRegistrationService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
+  getAllPlaces() : Observable<Array<VaccinationPlace>> {
+    return this.http.get(`${this.api}/vaccinationplaces`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   getSingle(vaccinationNr : number) : Observable<Vaccination> {
     return this.http.get(`${this.api}/vaccination/${vaccinationNr}`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler));

@@ -2,18 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'bs-home',
-  template: `
-    <div class="ui container">
-      <h1>Home</h1>
-      <p>Impfanmeldepage</p>
-      <a routerLink="../vaccinations" class="ui red button">
-        Impftermine ansehen
-      </a>
-    </div>
-
-  `,
-  styles: [
-  ]
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
