@@ -166,6 +166,24 @@
   background-color: #95b1a4;
 }
 
+.details-info_registration {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.details-to_login_button {
+  background-color: transparent;
+  border: none;
+  color: #DB3B18;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.details-to_login_button:hover, .details-to_login_button:active {
+  color: #AA3B18;
+}
+
 .details .details-back_button {
   padding: 5px 15px;
   font-weight: normal;

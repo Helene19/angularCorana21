@@ -1,7 +1,7 @@
 <div class="details" *ngIf="vaccination">
   <div class="details-header">
     <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
-    <a class="details-register" *ngIf="authService.isLoggedIn() && !user.vaccinated && checkFreePlaces()"
+    <a class="details-register" *ngIf="authService.isLoggedIn() && (user.user_vaccinations.length == 0) && checkFreePlaces()"
        (click)="addToVaccination(user)">Zur Impfung anmelden</a>
   </div>
   <div class="details-infos">
@@ -61,6 +61,11 @@
       <button class="delete-button" (click)="removeBook()">
         <span>Impftermin löschen</span>
       </button>
+    </div>
+
+    <div class="details-info_registration" *ngIf="!authService.isLoggedIn()">
+      <p>Wenn Sie sich für diesen Impftermin anmelden möchten, müssen Sie sich zuerst anmelden.</p>
+      <button [routerLink]="'/login'" class="details-to_login_button">>> Zum Login</button>
     </div>
 
     <button [routerLink]="'/vaccinations'" class="details-back_button">Zurück zu allen Impfterminen</button>
