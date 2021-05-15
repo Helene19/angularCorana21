@@ -61,7 +61,8 @@
 
   <div class="logout-status">
     <h3 class="logout-status_label">Status:</h3>
-    <p class="logout-status_vaccinated" *ngIf="!user.vaccinated">Nicht geimpft</p>
+    <p class="logout-status_vaccinated" *ngIf="!user.vaccinated && (user.user_vaccinations.length === 0)">Nicht geimpft</p>
+    <p class="logout-status_registered" *ngIf="!user.vaccinated && (user.user_vaccinations.length > 0)">Registriert</p>
     <p class="logout-status_not_vaccinated" *ngIf="user.vaccinated">Geimpft</p>
   </div>
 

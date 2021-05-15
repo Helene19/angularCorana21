@@ -36,6 +36,31 @@
   font-weight: bold;
 }
 
+.list-item-free_places, .list-item-no_places {
+  margin-top: 15px;
+  width: fit-content;
+}
+
+.list-item-free_places {
+  color: #66CC00;
+  padding: 5px;
+  border: 1px solid #66CC00;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: rgb(102, 204, 0, 0.1);
+  font-weight: bold;
+}
+
+.list-item-no_places {
+  color: #DB3B18;
+  padding: 5px;
+  border: 1px solid #DB3B18;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: rgb(219, 59, 24, 0.1);
+  font-weight: bold;
+}
+
 @media screen and (max-width: 679px) {
   .list-item-infos {
     flex-direction: column;

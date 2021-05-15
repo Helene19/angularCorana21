@@ -39,9 +39,23 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
+  freePlaces() {
+    return this.vaccination.max_participants - this.vaccination.vaccination_users.length;
+  }
+
+  checkFreePlaces() {
+    if(this.vaccination.max_participants == this.vaccination.vaccination_users.length) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   editToVaccinated(user) {
     user.vaccinated = true;
-    this.vr.editToVaccinated(user);
+    this.vr.editToVaccinated(user).subscribe(res => this.router.navigate(
+      ['../../vaccinations', this.vaccination.vaccination_nr], { relativeTo:
+      this.route }));
   }
 
   addToVaccination(user) {

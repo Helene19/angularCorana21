@@ -1,7 +1,7 @@
 <div class="details" *ngIf="vaccination">
   <div class="details-header">
     <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
-    <a class="details-register" *ngIf="authService.isLoggedIn() && !user.vaccinated"
+    <a class="details-register" *ngIf="authService.isLoggedIn() && !user.vaccinated && checkFreePlaces()"
        (click)="addToVaccination(user)">Zur Impfung anmelden</a>
   </div>
   <div class="details-infos">
@@ -9,8 +9,8 @@
     <p><span>Impfstoff: </span>{{ vaccination.vaccination_type }}</p>
     <p><span>Maximale Anzahl an Teilnehmer*innen: </span>{{ vaccination.max_participants }}</p>
     <p><span>Noch verfügbare Plätze: </span>
-      <span class="details-infos_participants">Zahl</span>
-      <span class="details-infos_no_more_participants">Keine</span>
+      <span class="details-infos_participants" *ngIf="checkFreePlaces()"> {{ freePlaces() }}</span>
+      <span class="details-infos_no_more_participants" *ngIf="!checkFreePlaces()">Keine</span>
     </p>
   </div>
 

@@ -15,4 +15,16 @@ export class VaccinationListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  freePlaces() {
+    return this.vacc.max_participants - this.vacc.vaccination_users.length;
+  }
+
+  checkFreePlaces() {
+    if(this.vacc.max_participants == this.vacc.vaccination_users.length) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }

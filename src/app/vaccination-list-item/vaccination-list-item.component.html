@@ -25,4 +25,7 @@
 
   </div>
 
+  <p class="list-item-free_places" *ngIf="checkFreePlaces()">Noch {{ freePlaces() }} Plätze verfügbar</p>
+  <p class="list-item-no_places" *ngIf="!checkFreePlaces()">Keine Plätz mehr verfügbar</p>
+
 </div>
