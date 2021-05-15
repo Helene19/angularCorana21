@@ -9,8 +9,7 @@ import { VaccinationFormErrorMessages } from "./vaccination-form-error-messages"
 @Component({
   selector: 'bs-vaccination-form',
   templateUrl: './vaccination-form.component.html',
-  styles: [
-  ]
+  styleUrls: ['./vaccination-form.component.css']
 })
 export class VaccinationFormComponent implements OnInit {
 

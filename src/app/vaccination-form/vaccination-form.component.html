@@ -1,56 +1,58 @@
-<h1>Impftermin</h1>
-<form class="ui large form" [formGroup]="vaccinationForm"
-      (ngSubmit)="submitForm()">
-  <input type="hidden" name="id">
-  <div class="field" [class.disabled]="isUpdatingVaccination">
-    <label>Impfterminnummer:</label>
-    <input type="number" formControlName="vaccination_nr">
-    <div *ngIf="errors.vaccination_nr" class="ui negative message"> {{ errors.vaccination_nr
-      }} </div>
-  </div>
-  <div class="field">
-    <label>Datum des Impftermins:</label>
-    <input type="date" formControlName="date">
-    <div *ngIf="errors.date" class="ui negative message">{{
-      errors.date }}</div>
-  </div>
-  <div class="field">
-    <label>Startzeitpunkt des Impftermins:</label>
-    <input formControlName="starttime">
-    <div *ngIf="errors.starttime" class="ui negative message">{{
-      errors.starttime }}</div>
-  </div>
-  <div class="field">
-    <label>Endzeitpunkt des Impftermins:</label>
-    <input formControlName="endtime">
-    <div *ngIf="errors.endtime" class="ui negative message">{{
-      errors.endtime }}</div>
-  </div>
-  <div class="field">
-    <label>maximale Anzahl an Teilnehmer*innen:</label>
-    <input type="number" formControlName="max_participants">
-    <div *ngIf="errors.max_participants" class="ui negative message">{{
-      errors.max_participants }}</div>
-  </div>
-  <div class="field">
-    <label>Impfstoff:</label>
-    <input formControlName="vaccination_type">
-    <div *ngIf="errors.vaccination_type" class="ui negative message">{{
-      errors.vaccination_type }}</div>
-  </div>
-  <div class="field">
-    <label>Impfort:</label>
-    <select formControlName="vaccination_place">
-      <option *ngFor="let vaccination_place of vaccinationPlaces" [value]="vaccination_place.vaccination_place_nr"
-              [selected]="vaccination_place.vaccination_place_nr === vaccination.vaccination_place.vaccination_place_nr">
-        {{ vaccination_place.vaccination_place_nr }}, {{ vaccination_place.state}}, {{ vaccination_place.city }},
-        {{ vaccination_place.street }} {{ vaccination_place.streetnr }}
-      </option>
+<div class="form">
+  <h1>Impftermin erstellen</h1>
+  <form class="form-form" [formGroup]="vaccinationForm"
+        (ngSubmit)="submitForm()">
+    <input type="hidden" name="id">
 
-    </select>
-    <div *ngIf="errors.vaccination_place" class="ui negative message">{{ errors.vaccination_place
-      }}</div>
-  </div>
-  <button type="submit" class="ui button"
-          [disabled]="vaccinationForm.invalid">Speichern</button>
-</form>
+    <div class="form-field" [class.disabled]="isUpdatingVaccination">
+      <label>Impfterminnummer:</label>
+      <input type="number" formControlName="vaccination_nr" class="input-vaccination_nr">
+      <div *ngIf="errors.vaccination_nr" class="form-negative_message"> {{ errors.vaccination_nr }} </div>
+    </div>
+
+    <div class="form-field">
+      <label>Datum des Impftermins:</label>
+      <input type="date" formControlName="date" class="input-date">
+      <div *ngIf="errors.date" class="form-negative_message">{{ errors.date }}</div>
+    </div>
+
+    <div class="form-field">
+      <label>Startzeitpunkt des Impftermins:</label>
+      <input formControlName="starttime" class="input-starttime">
+      <div *ngIf="errors.starttime" class="form-negative_message">{{ errors.starttime }}</div>
+    </div>
+
+    <div class="form-field">
+      <label>Endzeitpunkt des Impftermins:</label>
+      <input formControlName="endtime" class="input-endtime">
+      <div *ngIf="errors.endtime" class="form-negative_message">{{ errors.endtime }}</div>
+    </div>
+
+    <div class="form-field">
+      <label>maximale Anzahl an Teilnehmer*innen:</label>
+      <input type="number" formControlName="max_participants" class="input_max">
+      <div *ngIf="errors.max_participants" class="form-negative_message">{{ errors.max_participants }}</div>
+    </div>
+
+    <div class="form-field">
+      <label>Impfstoff:</label>
+      <input formControlName="vaccination_type" class="input-type">
+      <div *ngIf="errors.vaccination_type" class="form-negative_message">{{ errors.vaccination_type }}</div>
+    </div>
+
+    <div class="form-field">
+      <label>Impfort:</label>
+      <select formControlName="vaccination_place" class="select-place">
+        <option *ngFor="let vaccination_place of vaccinationPlaces" [value]="vaccination_place.vaccination_place_nr"
+                [selected]="vaccination_place.vaccination_place_nr === vaccination.vaccination_place.vaccination_place_nr">
+          {{ vaccination_place.vaccination_place_nr }}, {{ vaccination_place.state}}, {{ vaccination_place.city }},
+          {{ vaccination_place.street }} {{ vaccination_place.streetnr }}
+        </option>
+      </select>
+      <div *ngIf="errors.vaccination_place" class="form-negative_message">{{ errors.vaccination_place }}</div>
+    </div>
+
+    <button type="submit" class="form-submit_button" [disabled]="vaccinationForm.invalid">Speichern</button>
+  </form>
+</div>
+

@@ -1,5 +1,8 @@
 <div class="details" *ngIf="vaccination">
-  <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
+  <div class="details-header">
+    <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
+    <a class="details-register" *ngIf="authService.isLoggedIn()">Zur Impfung anmelden</a>
+  </div>
   <div class="details-infos">
     <h3>Allgemein:</h3>
     <p><span>Impfstoff: </span>{{ vaccination.vaccination_type }}</p>

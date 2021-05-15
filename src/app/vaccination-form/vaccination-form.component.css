@@ -1,0 +1,66 @@
+.form-form {
+  max-width: 900px;
+  margin-left: 0;
+}
+
+.form h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-field {
+  margin-bottom: 25px;
+}
+
+.form-negative_message {
+  color: #e02b27;
+  font-size: 12px;
+  padding-left: 25px;
+  margin-left: 50%;
+  margin-top: 10px;
+}
+
+.form label {
+  float: left;
+  justify-content: flex-end;
+  padding-right: 25px;
+  width: 50%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.form input, .form select {
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c2c2c2;
+  border-radius: 1px;
+  font-size: 14px;
+  height: 32px;
+  line-height: 2.5rem;
+  padding: 0 9px;
+  vertical-align: baseline;
+}
+
+.input-vaccination_nr, .input-date {
+  width: 14%;
+}
+
+.input-starttime, .input-endtime, .input_max {
+  width: 5%;
+}
+
+.input-type, .select-place {
+  width: 35%;
+}
+
+.form-submit_button {
+  margin-left: 53%;
+}
+
+.form-submit_button:disabled {
+  opacity: 40%;
+}
+
+
