@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Vaccination, VaccinationPlace, User } from "./vaccination";
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry} from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

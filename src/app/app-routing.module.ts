@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VaccinationDetailsComponent} from "./vaccination-details/vaccination-details.component";
-import { VaccinationListComponent} from "./vaccination-list/vaccination-list.component";
+import { VaccinationDetailsComponent } from "./vaccination-details/vaccination-details.component";
+import { VaccinationListComponent } from "./vaccination-list/vaccination-list.component";
 import { HomeComponent } from './home/home.component';
 import { VaccinationFormComponent } from "./vaccination-form/vaccination-form.component";
 import { LoginComponent } from "./login/login.component";

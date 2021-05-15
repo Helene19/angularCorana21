@@ -1,0 +1,129 @@
+.login-container {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-headline, .logout-headline {
+  color: #DB3B18;
+  text-align: center;
+}
+
+.login-form {
+  margin-top: 40px;
+}
+
+.login-email {
+  margin-bottom: 30px;
+  min-height: 30px;
+}
+
+.login-email_label, .login-password_label {
+  float: left;
+  text-align: left;
+  width: 20%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.login-email_input, .login-password_input {
+  width: 75%;
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c2c2c2;
+  border-radius: 1px;
+  font-size: 14px;
+  height: 32px;
+  line-height: 2.5rem;
+  padding: 0 9px;
+  vertical-align: baseline;
+}
+
+.login-email_message, .login-password_message {
+  color: #e02b27;
+  font-size: 12px;
+  margin-left: 20%;
+  margin-top: 10px;
+}
+
+.login-button, .logout-button {
+  font-family: "Open Sans";
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #DB3B18;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.login-button {
+  margin-top: 20px;
+  margin-left: 20%;
+}
+
+.login-button:hover, .login-button:active, .logout-button:hover, .logout-button:active {
+  background-color: #AA3B18;
+}
+
+.login-button:disabled {
+  opacity: 40%;
+}
+
+.logout-account {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f5f1eb;
+}
+
+.logout-account_headline {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.logout-user_infos, .logout-user_address {
+  flex: 0 0 33%;
+  max-width: 33%;
+}
+
+.logout-user_infos p, .logout-user_address p {
+  margin-top: 5px;
+}
+
+.logout-status {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.logout-status_label {
+  margin-right: 20px;
+}
+
+.logout-status_vaccinated {
+  color: #DB3B18;
+  padding: 10px;
+  border: 1px solid #DB3B18;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 12px;
+  background-color: rgb(219, 59, 24, 0.1);
+  font-weight: bold;
+}
+
+.logout-status_not_vaccinated {
+  color: #66CC00;
+  padding: 10px;
+  border: 1px solid #66CC00;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 12px;
+  background-color: rgb(102, 204, 0, 0.1);
+  font-weight: bold;
+}

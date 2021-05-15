@@ -57,6 +57,10 @@ export class AuthenticationService {
     }
   }
 
+  public isAdmin() {
+
+  }
+
   isLoggedOut() {
     return !this.isLoggedIn();
   }

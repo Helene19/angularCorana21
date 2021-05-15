@@ -10,8 +10,7 @@ interface Response {
 @Component({
   selector: 'bs-login',
   templateUrl: './login.component.html',
-  styles: [
-  ]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 

@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@ang
 import { ActivatedRoute, Router } from "@angular/router";
 import { VaccinationFactory } from "../shared/vaccination-factory";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
-import {Vaccination, VaccinationPlace} from "../shared/vaccination";
+import { Vaccination, VaccinationPlace } from "../shared/vaccination";
 import { VaccinationFormErrorMessages } from "./vaccination-form-error-messages";
 
 @Component({

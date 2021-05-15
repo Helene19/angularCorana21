@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from "./shared/authentication.service";
 import { TokenInterceptorService } from "./shared/token-interceptor.service";
-import {JwtInterceptorService} from "./shared/jwt-interceptor.service";
+import { JwtInterceptorService } from "./shared/jwt-interceptor.service";
 
 
 @NgModule({

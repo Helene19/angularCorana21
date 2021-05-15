@@ -1,35 +1,69 @@
-<div *ngIf="!isLoggedIn()">
-  <h1>Login</h1>
-  <form class="ui large form" [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="field">
-      <label>E-Mail</label>
-      <input type="email" id="username" formControlName="username">
-      <div *ngIf="loginForm.get('username').invalid &&
+<div *ngIf="!isLoggedIn()" class="login">
+  <div class="login-container">
+    <h1 class="login-headline">Login</h1>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <div class="login-email">
+        <label class="login-email_label">E-Mail</label>
+        <input type="email" id="username" formControlName="username" class="login-email_input">
+        <div *ngIf="loginForm.get('username').invalid &&
                   (loginForm.get('username').dirty ||
                   loginForm.get('username').touched) &&
-                  loginForm.get('username').hasError('required')" class="ui negative message">
-        Benutzername ist verpflichtend
-      </div>
-      <div *ngIf="loginForm.get('username').invalid &&
+                  loginForm.get('username').hasError('required')" class="login-email_message">
+          Dies ist ein Pflichtfeld.
+        </div>
+        <div *ngIf="loginForm.get('username').invalid &&
                   (loginForm.get('username').dirty ||
                   loginForm.get('username').touched) &&
-                  loginForm.get('username').hasError('email')" class="ui negative message">
-        E-Mail Format überprüfen
+                  loginForm.get('username').hasError('email')" class="login-email_message">
+          Bitte geben Sie eine gültige E-Mail-Adresse ein (z.B. max@domain.com).
+        </div>
       </div>
-    </div>
-    <div class="field">
-      <label>Passwort</label>
-      <input type="password" formControlName="password">
-      <div *ngIf="loginForm.get('password').invalid &&
+
+      <div class="login-password">
+        <label class="login-password_label">Passwort</label>
+        <input type="password" formControlName="password" class="login-password_input">
+        <div *ngIf="loginForm.get('password').invalid &&
                   (loginForm.get('password').dirty ||
-                  loginForm.get('password').touched)" class="ui negative message">
-        Passwort ist verpflichtend
+                  loginForm.get('password').touched)" class="login-password_message">
+          Dies ist ein Pflichtfeld.
+        </div>
       </div>
-    </div>
-    <button type="submit" class="ui button" [disabled]="loginForm.invalid">Login</button>
-  </form>
+
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
 </div>
 
-<div *ngIf="isLoggedIn()">
-  <button type="button" class="ui button" (click)="logout()">Logout</button>
+
+<div *ngIf="isLoggedIn()" class="logout">
+  <h1 class="logout-headline">Account</h1>
+
+  <div class="logout-account">
+    <h3 class="logout-account_headline">Accountinformationen: </h3>
+
+    <div class="logout-user_infos">
+      <h4>Benutzerinformationen: </h4>
+      <p>Name des Users</p>
+      <p>Geschlecht des Users</p>
+      <p>Geb.: Geburtsdatum des Users</p>
+      <p>E-Mail: E-Mail-Adresse des Users</p>
+      <p>Tel.: Telefonnummber des Users</p>
+    </div>
+
+    <div class="logout-user_address">
+      <h4>Anschrift:</h4>
+      <p>Straße Straßennummer </p>
+      <p>Postleitzahl, Stadt</p>
+      <p>Bundesland</p>
+    </div>
+  </div>
+
+  <div class="logout-status">
+    <h3 class="logout-status_label">Status:</h3>
+    <p class="logout-status_vaccinated">Nicht geimpft</p>
+    <p class="logout-status_not_vaccinated">Geimpft</p>
+  </div>
+
+  <button type="button" class="logout-button" (click)="logout()">Logout</button>
 </div>

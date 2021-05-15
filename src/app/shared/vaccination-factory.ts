@@ -1,4 +1,4 @@
-import { Vaccination} from "./vaccination";
+import { Vaccination } from "./vaccination";
 
 export class VaccinationFactory {
   static empty(): Vaccination {
