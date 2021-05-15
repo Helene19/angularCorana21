@@ -10,13 +10,13 @@
     <span>{{ vaccination.vaccination_place.description}}</span>
 
   </div>
-  <button [routerLink]="'/vaccinations'">Zurück zur Buchliste</button>
+  <button [routerLink]="'/vaccinations'">Zurück zu allen Impfterminen</button>
   <a class="ui tiny yellow labeled icon button"
-     [routerLink]="['../../admin', vaccination?.vaccination_nr]">
+     [routerLink]="['../../admin', vaccination?.vaccination_nr]" *ngIf="authService.isLoggedIn()">
     <i class="write icon"></i> Impftermin bearbeiten
   </a>
   <button class="ui tiny red labeled icon button"
-          (click)="removeBook()">
+          (click)="removeBook()" *ngIf="authService.isLoggedIn()">
     <i class="remove icon"></i> Impftermin löschen
   </button>
 </div>

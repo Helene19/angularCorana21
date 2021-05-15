@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Vaccination, VaccinationPlace, User } from "../shared/vaccination";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { AuthenticationService } from "../shared/authentication.service";
 
 @Component({
   selector: 'bs-vaccination-details',
@@ -16,7 +17,8 @@ export class VaccinationDetailsComponent implements OnInit {
   constructor(
     private vr: VaccinationRegistrationService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
