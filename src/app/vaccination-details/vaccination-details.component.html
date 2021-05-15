@@ -1,7 +1,7 @@
 <div class="details" *ngIf="vaccination">
   <div class="details-header">
     <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
-    <a class="details-register" *ngIf="authService.isLoggedIn() && (user.user_vaccinations.length == 0) && checkFreePlaces()"
+    <a class="details-register" *ngIf="authService.isLoggedIn() && checkUser() && (user.user_vaccinations.length == 0) && checkFreePlaces()"
        (click)="addToVaccination(user)">Zur Impfung anmelden</a>
   </div>
   <div class="details-infos">
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="details-users" *ngIf="authService.isLoggedIn() && user.admin">
+  <div class="details-users" *ngIf="authService.isLoggedIn() && checkUser() && user.admin">
     <h3>Angemeldete Personen:</h3>
     <p *ngIf="vaccination.vaccination_users.length === 0">Es haben sich noch keine Personen zu diesem Impftermin angemeldet!</p>
     <div class="details-all_users">
@@ -54,7 +54,7 @@
   </div>
 
   <div class="details-buttons">
-    <div class="details-edit_buttons" *ngIf="authService.isLoggedIn() && user.admin">
+    <div class="details-edit_buttons" *ngIf="authService.isLoggedIn() && checkUser() && user.admin">
       <a class="edit-button" [routerLink]="['../../admin', vaccination?.vaccination_nr]">
         <span>Impftermin bearbeiten</span>
       </a>

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       username: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required]
     });
-    if(this.isLoggedIn()) {
+    if(this.authService.isLoggedIn()) {
       this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
     }
   }
@@ -53,6 +53,14 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  checkUser() {
+    if(this.user != undefined) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

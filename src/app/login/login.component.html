@@ -39,32 +39,33 @@
 
 <div *ngIf="isLoggedIn()" class="logout">
   <h1 class="logout-headline">Account</h1>
+  <div class="logout-container" *ngIf="checkUser()">
+    <div class="logout-account">
+      <h3 class="logout-account_headline">Accountinformationen: </h3>
 
-  <div class="logout-account">
-    <h3 class="logout-account_headline">Accountinformationen: </h3>
+      <div class="logout-user_infos">
+        <h4>Benutzerinformationen: </h4>
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+        <p>{{ user.gender }}</p>
+        <p>Geb.: {{ user.birthdate }}</p>
+        <p>E-Mail: {{ user.email }}</p>
+        <p>Tel.: {{ user.phonenumber }}</p>
+      </div>
 
-    <div class="logout-user_infos">
-      <h4>Benutzerinformationen: </h4>
-      <p>{{ user.first_name }} {{ user.last_name }}</p>
-      <p>{{ user.gender }}</p>
-      <p>Geb.: {{ user.birthdate }}</p>
-      <p>E-Mail: {{ user.email }}</p>
-      <p>Tel.: {{ user.phonenumber }}</p>
+      <div class="logout-user_address">
+        <h4>Anschrift:</h4>
+        <p>{{ user.street}} {{ user.streetnr }}</p>
+        <p>{{ user.postcode }}, {{ user.city }}</p>
+      </div>
     </div>
 
-    <div class="logout-user_address">
-      <h4>Anschrift:</h4>
-      <p>{{ user.street}} {{ user.streetnr }}</p>
-      <p>{{ user.postcode }}, {{ user.city }}</p>
+    <div class="logout-status">
+      <h3 class="logout-status_label">Status:</h3>
+      <p class="logout-status_vaccinated" *ngIf="!user.vaccinated && (user.user_vaccinations.length === 0)">Nicht geimpft</p>
+      <p class="logout-status_registered" *ngIf="!user.vaccinated && (user.user_vaccinations.length > 0)">Registriert</p>
+      <p class="logout-status_not_vaccinated" *ngIf="user.vaccinated">Geimpft</p>
     </div>
-  </div>
 
-  <div class="logout-status">
-    <h3 class="logout-status_label">Status:</h3>
-    <p class="logout-status_vaccinated" *ngIf="!user.vaccinated && (user.user_vaccinations.length === 0)">Nicht geimpft</p>
-    <p class="logout-status_registered" *ngIf="!user.vaccinated && (user.user_vaccinations.length > 0)">Registriert</p>
-    <p class="logout-status_not_vaccinated" *ngIf="user.vaccinated">Geimpft</p>
+    <button type="button" class="logout-button" (click)="logout()">Logout</button>
   </div>
-
-  <button type="button" class="logout-button" (click)="logout()">Logout</button>
 </div>

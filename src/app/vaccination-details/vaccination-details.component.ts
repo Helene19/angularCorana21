@@ -67,5 +67,12 @@ export class VaccinationDetailsComponent implements OnInit {
     });
   }
 
+  checkUser() {
+    if(this.user != undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 }

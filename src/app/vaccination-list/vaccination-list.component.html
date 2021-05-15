@@ -4,8 +4,8 @@
   </a>
 
   <div *ngIf="!vaccinations">
-    <div class="ui large text loader">Daten werden geladen...</div>
+    <div>Daten werden geladen...</div>
   </div>
-  <p *ngIf="vaccinations && !vaccinations.length" class="list-no_items">Es stehen noch keine Impftermine zur Verfügung.</p>
+  <p *ngIf="vaccinations && (vaccinations.length == 0)" class="list-no_items">Es stehen noch keine Impftermine zur Verfügung.</p>
 
 </div>

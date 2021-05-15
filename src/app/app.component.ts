@@ -8,13 +8,12 @@ import {User} from "./shared/user";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
 
   user: User;
 
   constructor(private authService: AuthenticationService,
               private vr: VaccinationRegistrationService) { }
-
 
 
   isLoggedIn() {
@@ -29,13 +28,21 @@ export class AppComponent{
     }
   }
 
-  isAdmin() {
+  checkUser() {
     if(this.isLoggedIn()) {
-      //this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
-      return this.user.admin;
+      this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
+      if(this.user != undefined) {
+        if(this.user.admin) {
+          return true;
+        }
+        return false;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
   }
+
 
 }
