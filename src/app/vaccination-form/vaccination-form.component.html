@@ -41,10 +41,12 @@
   <div class="field">
     <label>Impfort:</label>
     <select formControlName="vaccination_place">
-      <option value="">Wähle einen Impfort</option>
-      <option *ngFor="let vaccination_place of vaccinationPlaces" [value]="vaccination_place">
-        {{ vaccination_place.vaccination_place_nr }}, {{ vaccination_place.state}}, {{ vaccination_place.city }}, {{ vaccination_place.street }} {{ vaccination_place.streetnr }}
+      <option *ngFor="let vaccination_place of vaccinationPlaces" [value]="vaccination_place.vaccination_place_nr"
+              [selected]="vaccination_place.vaccination_place_nr === vaccination.vaccination_place.vaccination_place_nr">
+        {{ vaccination_place.vaccination_place_nr }}, {{ vaccination_place.state}}, {{ vaccination_place.city }},
+        {{ vaccination_place.street }} {{ vaccination_place.streetnr }}
       </option>
+
     </select>
     <div *ngIf="errors.vaccination_place" class="ui negative message">{{ errors.vaccination_place
       }}</div>

@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { VaccinationFormComponent } from './vaccination-form/vaccination-form.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     VaccinationListItemComponent,
     VaccinationDetailsComponent,
     HomeComponent,
-    VaccinationFormComponent
+    VaccinationFormComponent,
+    LoginComponent
 
   ],
   imports: [

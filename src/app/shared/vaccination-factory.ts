@@ -10,8 +10,7 @@ export class VaccinationFactory {
     return new Vaccination(
       rawVaccionation.id,
       rawVaccionation.vaccination_nr,
-      typeof(rawVaccionation.date) === 'string' ?
-        new Date(rawVaccionation.date) : rawVaccionation.date,
+      rawVaccionation.date,
       rawVaccionation.starttime,
       rawVaccionation.endtime,
       rawVaccionation.max_participants,
