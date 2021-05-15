@@ -1,7 +1,8 @@
 <div class="details" *ngIf="vaccination">
   <div class="details-header">
     <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
-    <a class="details-register" *ngIf="authService.isLoggedIn() && !user.admin && !user.vaccinated">Zur Impfung anmelden</a>
+    <a class="details-register" *ngIf="authService.isLoggedIn() && !user.vaccinated"
+       (click)="addToVaccination(user)">Zur Impfung anmelden</a>
   </div>
   <div class="details-infos">
     <h3>Allgemein:</h3>
@@ -46,7 +47,7 @@
         <p>Tel.: {{ user.phonenumber }}</p>
         <p *ngIf="user.vaccinated" class="details-user_vaccinated">Geimpft</p>
         <p *ngIf="!user.vaccinated" class="details-user_not_vaccinated">Nicht geimpft</p>
-        <button *ngIf="!user.vaccinated" class="details-user_is_vaccinated">Impfung durchgeführt</button>
+        <button *ngIf="!user.vaccinated" (click)="editToVaccinated(user)" class="details-user_is_vaccinated">Impfung durchgeführt</button>
       </div>
     </div>
 

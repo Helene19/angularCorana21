@@ -2,7 +2,9 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Vaccination, VaccinationPlace, User } from "../shared/vaccination";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import {AuthenticationService} from "../shared/authentication.service";
+import { AuthenticationService } from "../shared/authentication.service";
+import {relative} from "@angular/compiler-cli/src/ngtsc/file_system";
+import {element} from "protractor";
 
 @Component({
   selector: 'bs-vaccination-details',
@@ -24,7 +26,9 @@ export class VaccinationDetailsComponent implements OnInit {
   ngOnInit(): void {
     const params = this.route.snapshot.params;
     this.vr.getSingle(params['vaccination_nr']).subscribe(v => this.vaccination = v);
-    this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
+    if(this.authService.isLoggedIn()) {
+      this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
+    }
   }
 
   removeBook() {
@@ -33,6 +37,20 @@ export class VaccinationDetailsComponent implements OnInit {
         .subscribe(res => this.router.navigate(['../'], { relativeTo:
           this.route }));
     }
+  }
+
+  editToVaccinated(user) {
+    user.vaccinated = true;
+    this.vr.editToVaccinated(user);
+  }
+
+  addToVaccination(user) {
+    this.vaccination.vaccination_users.push(user);
+    this.vr.registerToVaccination(this.vaccination, user.id).subscribe(res => {
+      this.router.navigate(["../../login"], {
+        relativeTo: this.route
+      });
+    });
   }
 
 

@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
       username: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required]
     });
-    this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
+    if(this.isLoggedIn()) {
+      this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
+    }
   }
 
   login() {

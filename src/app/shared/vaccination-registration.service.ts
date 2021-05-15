@@ -53,6 +53,18 @@ export class VaccinationRegistrationService {
       .pipe(catchError(this.errorHandler));
   }
 
+  editToVaccinated(user: User): Observable<any> {
+    return this.http.put(`${this.api}/vaccination/user/${user.id}`, user)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  registerToVaccination(vaccination: Vaccination,  userid: number): Observable<any> {
+    let user = '{ "userId": '+userid+'}';
+    let userJson = JSON.parse(user);
+    return this.http.put(`${this.api}/vaccination/registration/${vaccination.vaccination_nr}`, userJson)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
