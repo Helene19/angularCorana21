@@ -8,12 +8,37 @@
 
 body {
   margin: 0;
+  padding-bottom: 50px;
 }
 
-.header, .nav-links, .home, .list, .login, .logout {
+.header, .nav-links, .home, .list, .login, .logout,
+.details {
   margin-left: auto;
   margin-right: auto;
   max-width: 1280px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+h1 {
+  color: #DB3B18;
+}
+
+.login-button, .logout-button, .details-back_button, .details-user_is_vaccinated,
+.edit-button, .delete-button {
+  font-family: "Open Sans";
+  padding: 10px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #DB3B18;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.login-button:hover, .login-button:active,
+.logout-button:hover, .logout-button:active,
+.details-back_button:hover, .details-back_button:active {
+  background-color: #AA3B18;
 }

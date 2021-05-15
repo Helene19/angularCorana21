@@ -14,7 +14,7 @@ export class Vaccination {
     public max_participants: number,
     public vaccination_type: string,
     public vaccination_place: VaccinationPlace,
-    public users: User[]
+    public vaccination_users: User[]
   ) {
   }
 }

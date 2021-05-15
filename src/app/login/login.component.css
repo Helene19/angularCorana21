@@ -48,24 +48,11 @@
   margin-top: 10px;
 }
 
-.login-button, .logout-button {
-  font-family: "Open Sans";
-  padding: 10px 30px;
-  border: none;
-  border-radius: 20px;
-  background-color: #DB3B18;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
-}
+
 
 .login-button {
   margin-top: 20px;
   margin-left: 20%;
-}
-
-.login-button:hover, .login-button:active, .logout-button:hover, .logout-button:active {
-  background-color: #AA3B18;
 }
 
 .login-button:disabled {
@@ -127,3 +114,5 @@
   background-color: rgb(102, 204, 0, 0.1);
   font-weight: bold;
 }
+
+

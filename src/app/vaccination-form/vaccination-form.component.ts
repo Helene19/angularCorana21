@@ -65,7 +65,7 @@ export class VaccinationFormComponent implements OnInit {
 
     vaccination.vaccination_place = this.vaccinationForm.value.vaccination_place;
 
-    vaccination.users = this.vaccination.users;
+    vaccination.vaccination_users = this.vaccination.vaccination_users;
 
     if (this.isUpdatingVaccination) {
       this.vr.update(vaccination).subscribe(res => {

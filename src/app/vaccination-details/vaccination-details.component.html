@@ -1,22 +1,64 @@
-<div class="content" *ngIf="vaccination">
-  <div class="header">Impfung #{{ vaccination.vaccination_nr }}</div>
-  <div class="description"> {{ vaccination.vaccination_type }} </div>
-  <div class="place">
-    <span>{{ vaccination.vaccination_place.city}}</span>
-    <span>{{ vaccination.vaccination_place.street}}</span>
-    <span>{{ vaccination.vaccination_place.streetnr}}</span>
-    <span>{{ vaccination.vaccination_place.postcode}}</span>
-    <span>{{ vaccination.vaccination_place.state}}</span>
-    <span>{{ vaccination.vaccination_place.description}}</span>
+<div class="details" *ngIf="vaccination">
+  <h1>Impfung #{{ vaccination.vaccination_nr }}</h1>
+  <div class="details-infos">
+    <h3>Allgemein:</h3>
+    <p><span>Impfstoff: </span>{{ vaccination.vaccination_type }}</p>
+    <p><span>Maximale Anzahl an Teilnehmer*innen: </span>{{ vaccination.max_participants }}</p>
+    <p><span>Noch verfügbare Plätze: </span>
+      <span class="details-infos_participants">Zahl</span>
+      <span class="details-infos_no_more_participants">Keine</span>
+    </p>
+  </div>
+
+  <div class="details-where_when">
+    <div class="details-when">
+      <h3>Wann:</h3>
+      <p><span>Datum: </span>{{ vaccination.date }}</p>
+      <p><span>Start: </span>{{ vaccination.starttime }}</p>
+      <p><span>Ende: </span>{{ vaccination.endtime }}</p>
+    </div>
+
+    <div class="details-where">
+      <h3>Wo:</h3>
+      <p>{{ vaccination.vaccination_place.street}} {{ vaccination.vaccination_place.streetnr}}</p>
+      <p>{{ vaccination.vaccination_place.postcode}}, {{ vaccination.vaccination_place.city}}</p>
+      <p>{{ vaccination.vaccination_place.state}}</p>
+      <div *ngIf="vaccination.vaccination_place.description" class="details-where_description">
+        <p>Beschreibung:</p>
+        <p>{{ vaccination.vaccination_place.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-users" *ngIf="authService.isLoggedIn()">
+    <h3>Angemeldete Personen:</h3>
+    <p *ngIf="vaccination.vaccination_users.length === 0">Es haben sich noch keine Personen zu diesem Impftermin angemeldet!</p>
+    <div class="details-all_users">
+      <div *ngFor="let user of vaccination.vaccination_users" class="details-users_user">
+        <p class="details-user_name">{{ user.first_name }} {{ user.last_name }}</p>
+        <p>{{ user.gender }}</p>
+        <p>Geb.: {{ user.birthdate }}</p>
+        <p>SVNR: {{ user.sv_number }}</p>
+        <p>E-Mail: {{ user.email }}</p>
+        <p>Tel.: {{ user.phonenumber }}</p>
+        <p *ngIf="user.vaccinated" class="details-user_vaccinated">Geimpft</p>
+        <p *ngIf="!user.vaccinated" class="details-user_not_vaccinated">Nicht geimpft</p>
+        <button *ngIf="!user.vaccinated" class="details-user_is_vaccinated">Impfung durchgeführt</button>
+      </div>
+    </div>
 
   </div>
-  <button [routerLink]="'/vaccinations'">Zurück zu allen Impfterminen</button>
-  <a class="ui tiny yellow labeled icon button"
-     [routerLink]="['../../admin', vaccination?.vaccination_nr]" *ngIf="authService.isLoggedIn()">
-    <i class="write icon"></i> Impftermin bearbeiten
-  </a>
-  <button class="ui tiny red labeled icon button"
-          (click)="removeBook()" *ngIf="authService.isLoggedIn()">
-    <i class="remove icon"></i> Impftermin löschen
-  </button>
+
+  <div class="details-buttons">
+    <div class="details-edit_buttons" *ngIf="authService.isLoggedIn()">
+      <a class="edit-button" [routerLink]="['../../admin', vaccination?.vaccination_nr]">
+        <span>Impftermin bearbeiten</span>
+      </a>
+      <button class="delete-button" (click)="removeBook()">
+        <span>Impftermin löschen</span>
+      </button>
+    </div>
+
+    <button [routerLink]="'/vaccinations'" class="details-back_button">Zurück zu allen Impfterminen</button>
+  </div>
 </div>

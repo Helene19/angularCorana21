@@ -7,8 +7,7 @@ import { AuthenticationService } from "../shared/authentication.service";
 @Component({
   selector: 'bs-vaccination-details',
   templateUrl: './vaccination-details.component.html',
-  styles: [
-  ]
+  styleUrls: ['./vaccination-details.component.css']
 })
 export class VaccinationDetailsComponent implements OnInit {
 

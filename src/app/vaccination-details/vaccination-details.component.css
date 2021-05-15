@@ -1,0 +1,162 @@
+.details h1 {
+  margin-bottom: 25px;
+}
+
+.details h3 {
+  margin-bottom: 10px;
+}
+
+.details-infos {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #f5f1eb;
+}
+
+.details-infos span {
+  font-weight: normal;
+}
+
+.details-infos p {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.details-infos .details-infos_participants {
+  color: #66CC00;
+  padding: 5px;
+  border: 1px solid #66CC00;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: rgb(102, 204, 0, 0.1);
+  font-weight: bold;
+}
+
+.details-infos .details-infos_no_more_participants {
+  color: #DB3B18;
+  padding: 5px;
+  border: 1px solid #DB3B18;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: rgb(219, 59, 24, 0.1);
+  font-weight: bold;
+}
+
+.details-where_when {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.details-where, .details-when {
+  flex: 0 0 33.3%;
+  max-width: 33.3%;
+}
+
+.details-when p, .details-where p {
+  margin-bottom: 3px;
+}
+
+.details-where_description {
+  margin-top: 5px;
+}
+
+.details-where_description p:first-child {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.details-users {
+  border-top: 1px solid #f5f1eb;
+  padding-top: 20px;
+}
+
+.details-all_users {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.details-users_user {
+  border: 1px solid #c7c7c7;
+  padding: 15px;
+}
+
+.details-users_user .details-user_name {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.details-users_user p {
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.details-user_vaccinated {
+  margin-top: 10px;
+  color: #66CC00;
+  padding: 5px;
+  border: 1px solid #66CC00;
+  border-radius: 10px;
+  background-color: rgb(102, 204, 0, 0.1);
+  font-weight: bold;
+  width: fit-content;
+}
+
+.details-user_not_vaccinated{
+  margin-top: 10px;
+  color: #DB3B18;
+  padding: 5px;
+  border: 1px solid #DB3B18;
+  border-radius: 10px;
+  font-size: 12px;
+  background-color: rgb(219, 59, 24, 0.1);
+  font-weight: bold;
+  width: fit-content;
+}
+
+.details-users .details-user_is_vaccinated {
+  background-color: #6cad27;
+  margin-top: 10px;
+  font-weight: normal;
+  padding: 5px 10px;
+}
+
+.details-users .details-user_is_vaccinated:hover,
+.details-users .details-user_is_vaccinated:active {
+  background-color: #396c00;
+}
+
+.details-buttons {
+  margin-top: 30px;
+}
+
+.details-edit_buttons {
+  margin-bottom: 40px;
+}
+
+.details-edit_buttons .edit-button {
+  text-decoration: none;
+  background-color: #ffc033;
+  margin-right: 15px;
+}
+
+.details-edit_buttons .edit-button:hover,
+.details-edit_buttons .edit-button:active {
+  background-color: #d5a937;
+}
+
+.details-edit_buttons .delete-button {
+  background-color: #afd3c6;
+}
+
+.details-edit_buttons .delete-button:hover,
+.details-edit_buttons .delete-button:active {
+  background-color: #95b1a4;
+}
+
+.details .details-back_button {
+  padding: 5px 15px;
+  font-weight: normal;
+}
