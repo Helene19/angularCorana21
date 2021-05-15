@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Vaccination, VaccinationPlace, User } from "../shared/vaccination";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { AuthenticationService } from "../shared/authentication.service";
+import {AuthenticationService} from "../shared/authentication.service";
 
 @Component({
   selector: 'bs-vaccination-details',
@@ -12,17 +12,19 @@ import { AuthenticationService } from "../shared/authentication.service";
 export class VaccinationDetailsComponent implements OnInit {
 
   vaccination: Vaccination;
+  user: User;
 
   constructor(
     private vr: VaccinationRegistrationService,
     private route: ActivatedRoute,
     private router: Router,
-    public authService: AuthenticationService
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
     const params = this.route.snapshot.params;
     this.vr.getSingle(params['vaccination_nr']).subscribe(v => this.vaccination = v);
+    this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
   }
 
   removeBook() {

@@ -44,25 +44,24 @@
 
     <div class="logout-user_infos">
       <h4>Benutzerinformationen: </h4>
-      <p>Name des Users</p>
-      <p>Geschlecht des Users</p>
-      <p>Geb.: Geburtsdatum des Users</p>
-      <p>E-Mail: E-Mail-Adresse des Users</p>
-      <p>Tel.: Telefonnummber des Users</p>
+      <p>{{ user.first_name }} {{ user.last_name }}</p>
+      <p>{{ user.gender }}</p>
+      <p>Geb.: {{ user.birthdate }}</p>
+      <p>E-Mail: {{ user.email }}</p>
+      <p>Tel.: {{ user.phonenumber }}</p>
     </div>
 
     <div class="logout-user_address">
       <h4>Anschrift:</h4>
-      <p>Straße Straßennummer </p>
-      <p>Postleitzahl, Stadt</p>
-      <p>Bundesland</p>
+      <p>{{ user.street}} {{ user.streetnr }}</p>
+      <p>{{ user.postcode }}, {{ user.city }}</p>
     </div>
   </div>
 
   <div class="logout-status">
     <h3 class="logout-status_label">Status:</h3>
-    <p class="logout-status_vaccinated">Nicht geimpft</p>
-    <p class="logout-status_not_vaccinated">Geimpft</p>
+    <p class="logout-status_vaccinated" *ngIf="!user.vaccinated">Nicht geimpft</p>
+    <p class="logout-status_not_vaccinated" *ngIf="user.vaccinated">Geimpft</p>
   </div>
 
   <button type="button" class="logout-button" (click)="logout()">Logout</button>

@@ -8,7 +8,7 @@
   <div class="nav-links">
     <a routerLink="home" routerLinkActive="active" class="link">Home</a>
     <a routerLink="vaccinations" routerLinkActive="active" class="link">Impftermine</a>
-    <a *ngIf="isLoggedIn()" routerLink="admin" routerLinkActive="active" class="link">Impftermin erstellen</a>
+    <a *ngIf="isLoggedIn() " routerLink="admin" routerLinkActive="active" class="link">Impftermin erstellen</a>
     <a routerLink="login" routerLinkActive="active" class="link">{{ getLoginLabel() }}</a>
   </div>
 </div>

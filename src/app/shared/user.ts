@@ -1,3 +1,5 @@
+import {Vaccination} from "./vaccination";
+
 export class User {
 
   constructor(
@@ -15,6 +17,7 @@ export class User {
     public city: string,
     public postcode: number,
     public email: string,
-    private password: string) {
+    private password: string,
+    public user_vaccinations: Vaccination[]) {
   }
 }
