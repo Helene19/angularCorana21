@@ -41,8 +41,6 @@ export class VaccinationFormComponent implements OnInit {
   }
 
   initVaccination() {
-
-    console.log(this.vaccination.vaccination_place);
     this.vaccinationForm = this.fb.group({
       id: this.vaccination.id,
       vaccination_nr: [this.vaccination.vaccination_nr, Validators.required],
@@ -51,7 +49,7 @@ export class VaccinationFormComponent implements OnInit {
       endtime: [this.vaccination.endtime, [Validators.required, Validators.pattern("^[0-2]{1}[0-9]{1}:[0-9]{2}$")]],
       max_participants: [this.vaccination.max_participants, [Validators.required, Validators.max(25), Validators.min(2)]],
       vaccination_type: [this.vaccination.vaccination_type, Validators.required],
-      vaccination_place: [this.vaccination.vaccination_place, Validators.required]
+      vaccination_place: [this.vaccination.vaccination_place.vaccination_place_nr, Validators.required]
     });
 
     this.vaccinationForm.statusChanges.subscribe(() =>
