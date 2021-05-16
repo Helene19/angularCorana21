@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import jwt_decode from "jwt-decode";
-import { catchError, retry } from "rxjs/operators";
-import { User } from "./user";
-import {Observable} from "rxjs";
-import {VaccinationRegistrationService} from "./vaccination-registration.service";
 
 interface Token {
   exp: number;
@@ -18,10 +14,8 @@ export class AuthenticationService {
   private api: string =
     "https://corana21.s1810456033.student.kwmhgb.at/api/auth";
 
-  user: User;
 
-  constructor(private http: HttpClient,
-              private vr: VaccinationRegistrationService) {}
+  constructor(private http: HttpClient) {}
 
   login(email: string, password: string) {
     return this.http.post(`${this.api}/login`, {
@@ -38,12 +32,14 @@ export class AuthenticationService {
     const decodedToken = jwt_decode(token) as Token;
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("userId", decodedToken.user.id);
+    window.location.replace('/home');
   }
 
   logout() {
     this.http.post(`${this.api}/logout`, {});
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("userId");
+    window.location.replace('/login');
   }
 
   public isLoggedIn() {

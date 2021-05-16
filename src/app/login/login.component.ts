@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AuthenticationService } from "../shared/authentication.service";
-import {User} from "../shared/user";
-import {VaccinationRegistrationService} from "../shared/vaccination-registration.service";
+import { User } from "../shared/user";
+import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
 
 interface Response {
   access_token: string;
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
           Response).access_token);
         this.router.navigateByUrl("/");
       });
+
     }
   }
 

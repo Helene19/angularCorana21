@@ -4,7 +4,7 @@ import {
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest
+  HttpRequest, HttpResponse
 } from "@angular/common/http";
 import {tap} from "rxjs/operators";
 import {Observable} from "rxjs";
@@ -13,10 +13,10 @@ import {Observable} from "rxjs";
 export class JwtInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(tap( (err: any) => {
+    return next.handle(request).pipe(tap((event: HttpEvent<any>) => { }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {
-          alert("E-Mail Adresse und/oder Passwort sind falsch!");
+          alert("E-Mail-Adresse und/oder Passwort sind falsch!");
         }
       }
     }));

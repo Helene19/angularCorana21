@@ -184,6 +184,10 @@
   color: #AA3B18;
 }
 
+.details-info_registration {
+  margin-bottom: 20px;
+}
+
 .details .details-back_button {
   padding: 5px 15px;
   font-weight: normal;
