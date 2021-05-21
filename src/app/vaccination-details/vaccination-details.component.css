@@ -8,10 +8,6 @@
   margin-bottom: 25px;
 }
 
-.details-header .details-register {
-  height: 18px;
-}
-
 .details h3 {
   margin-bottom: 10px;
 }
@@ -82,7 +78,7 @@
 
 .details-all_users {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
@@ -177,7 +173,10 @@
   color: #DB3B18;
   font-size: 16px;
   font-weight: bold;
-  padding-left: 10px;
+}
+
+.details-info_sentence {
+  padding-right: 10px;
 }
 
 .details-to_login_button:hover, .details-to_login_button:active {
@@ -192,3 +191,39 @@
   padding: 5px 15px;
   font-weight: normal;
 }
+
+@media screen and (max-width: 767.98px) {
+  .details-where, .details-when {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .details-all_users {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .details-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .details-header .details-register {
+    margin-bottom: 20px;
+  }
+
+}
+
+@media screen and (max-width: 451px) {
+  .delete-button {
+    margin-top: 20px;
+  }
+
+  .details-all_users {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
+
+

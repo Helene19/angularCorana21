@@ -1,4 +1,5 @@
 .header {
+  box-sizing: content-box;
   padding-bottom: 20px;
   padding-top: 10px;
   height: 80px;
@@ -45,8 +46,40 @@
 }
 
 @media screen and (max-width: 767.99px) {
+  .header {
+    height: 60px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
   .headline-container {
     padding-left: 160px;
     justify-content: flex-start;
+  }
+
+
+}
+
+@media screen and (max-width: 575.99px) {
+  .logo {
+    position: relative;
+  }
+
+  .header {
+    height: 90px;
+  }
+
+  .headline-container {
+    padding-top: 5px;
+    padding-left: 0;
+    height: auto;
+    justify-content: center;
+  }
+
+  .nav-links.four {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

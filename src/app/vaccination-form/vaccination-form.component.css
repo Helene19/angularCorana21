@@ -15,7 +15,6 @@
 .form-negative_message {
   color: #e02b27;
   font-size: 12px;
-  padding-left: 25px;
   margin-left: 50%;
   margin-top: 10px;
 }
@@ -44,23 +43,43 @@
 }
 
 .input-vaccination_nr, .input-date {
-  width: 14%;
+  width: 140px;
 }
 
 .input-starttime, .input-endtime, .input_max {
-  width: 5%;
+  width: 90px;
 }
 
 .input-type, .select-place {
-  width: 35%;
+  width: 40%;
 }
 
 .form-submit_button {
-  margin-left: 53%;
+  margin-left: 50%;
 }
 
 .form-submit_button:disabled {
   opacity: 40%;
 }
 
+@media (max-width: 767.98px) {
+  .form-field {
+    margin-bottom: 10px;
+  }
+  .form label {
+    width: 100%;
+    justify-content: flex-start;
+  }
 
+  .input-type, .select-place {
+    width: 100%;
+  }
+
+  .form-submit_button {
+    margin-left: 0;
+  }
+
+  .form-negative_message {
+    margin-left: 0;
+  }
+}

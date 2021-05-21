@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="navigation">
-  <div class="nav-links">
+  <div class="nav-links {{isLoggedIn()  && isAdmin() ? 'four' : ''}}">
     <a routerLink="home" routerLinkActive="active" class="link">Home</a>
     <a routerLink="vaccinations" routerLinkActive="active" class="link">Impftermine</a>
     <a *ngIf="isLoggedIn() && isAdmin()" routerLink="admin" routerLinkActive="active" class="link">Impftermin erstellen</a>
