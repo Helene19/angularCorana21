@@ -3,7 +3,7 @@ export class ErrorMessage {
     public forControl: string,
     public forValidator: string,
     public text: string
-  ) { }
+  ) {}
 }
 
 export const VaccinationFormErrorMessages = [

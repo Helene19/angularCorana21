@@ -7,12 +7,13 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class VaccinationRegistrationService {
   vaccinations: Vaccination[];
 
   private api = 'https://corana21.s1810456033.student.kwmhgb.at/api'
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getAll() : Observable<Array<Vaccination>> {
     return this.http.get(`${this.api}/vaccinations`)

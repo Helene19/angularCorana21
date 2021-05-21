@@ -6,8 +6,8 @@ import {
   HttpInterceptor,
   HttpRequest, HttpResponse
 } from "@angular/common/http";
-import {tap} from "rxjs/operators";
-import {Observable} from "rxjs";
+import { tap } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class JwtInterceptorService implements HttpInterceptor {

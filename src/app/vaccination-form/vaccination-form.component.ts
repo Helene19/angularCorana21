@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { VaccinationFactory } from "../shared/vaccination-factory";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
@@ -11,6 +11,7 @@ import { VaccinationFormErrorMessages } from "./vaccination-form-error-messages"
   templateUrl: './vaccination-form.component.html',
   styleUrls: ['./vaccination-form.component.css']
 })
+
 export class VaccinationFormComponent implements OnInit {
 
   vaccinationForm: FormGroup;
@@ -36,7 +37,6 @@ export class VaccinationFormComponent implements OnInit {
         this.initVaccination();
       });
     }
-
     this.initVaccination();
   }
 
@@ -60,9 +60,7 @@ export class VaccinationFormComponent implements OnInit {
   submitForm() {
 
     const vaccination: Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
-
     vaccination.vaccination_place = this.vaccinationForm.value.vaccination_place;
-
     vaccination.vaccination_users = this.vaccination.vaccination_users;
 
     if (this.isUpdatingVaccination) {
@@ -81,7 +79,6 @@ export class VaccinationFormComponent implements OnInit {
         });
       });
     }
-
   }
 
   updateErrorMessages() {
@@ -100,7 +97,6 @@ export class VaccinationFormComponent implements OnInit {
       ) {
         this.errors[message.forControl] = message.text;
       }
-
     }
   }
 

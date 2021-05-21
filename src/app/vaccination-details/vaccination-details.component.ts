@@ -1,10 +1,8 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { Vaccination, VaccinationPlace, User } from "../shared/vaccination";
+import { Component, OnInit } from '@angular/core';
+import { Vaccination, User } from "../shared/vaccination";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AuthenticationService } from "../shared/authentication.service";
-import {relative} from "@angular/compiler-cli/src/ngtsc/file_system";
-import {element} from "protractor";
 
 @Component({
   selector: 'bs-vaccination-details',
@@ -21,7 +19,7 @@ export class VaccinationDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticationService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const params = this.route.snapshot.params;
@@ -31,7 +29,7 @@ export class VaccinationDetailsComponent implements OnInit {
     }
   }
 
-  removeBook() {
+  removeVaccination() {
     if (confirm('Impftermin wirklich löschen?')) {
       this.vr.remove(this.vaccination.vaccination_nr)
         .subscribe(res => this.router.navigate(['../'], { relativeTo:

@@ -26,7 +26,6 @@ import { JwtInterceptorService } from "./shared/jwt-interceptor.service";
     HomeComponent,
     VaccinationFormComponent,
     LoginComponent
-
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule
@@ -45,4 +44,5 @@ import { JwtInterceptorService } from "./shared/jwt-interceptor.service";
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

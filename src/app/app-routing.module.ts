@@ -15,9 +15,11 @@ const routes: Routes = [
   { path: 'admin/:vaccination_nr', component: VaccinationFormComponent },
   { path: 'login', component: LoginComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })
+
 export class AppRoutingModule { }

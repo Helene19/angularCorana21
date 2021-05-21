@@ -8,6 +8,7 @@ import { User } from "./shared/user";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
 
   user: User;
@@ -21,7 +22,6 @@ export class AppComponent implements OnInit {
       this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
     }
   }
-
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
@@ -45,7 +45,6 @@ export class AppComponent implements OnInit {
     } else {
       return false;
     }
-
   }
 
 }
