@@ -9,6 +9,7 @@ export class ErrorMessage {
 export const VaccinationFormErrorMessages = [
   new ErrorMessage('vaccination_nr', 'required', 'Es muss eine Impfterminnummer angegeben werden.'),
   new ErrorMessage('date', 'required', 'Es muss das Datum des Impftermins angegeben werden.'),
+  new ErrorMessage('date', 'dateValidator', 'Das Datum muss in der Zukunft liegen.'),
   new ErrorMessage('starttime', 'required', 'Es muss der Startzeitpunkt des Impftermins angegeben werden.'),
   new ErrorMessage('starttime', 'pattern', 'Der Startzeitpunkt hat die falsche Formatierung. ' +
     'Ein Beispiel für eine richtige Formatierung wäre: 11:45'),

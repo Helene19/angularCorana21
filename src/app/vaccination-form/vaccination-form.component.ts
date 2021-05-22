@@ -5,6 +5,7 @@ import { VaccinationFactory } from "../shared/vaccination-factory";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
 import { Vaccination, VaccinationPlace } from "../shared/vaccination";
 import { VaccinationFormErrorMessages } from "./vaccination-form-error-messages";
+import { VaccinationValidators } from "../shared/vaccination-validators";
 
 @Component({
   selector: 'bs-vaccination-form',
@@ -45,7 +46,7 @@ export class VaccinationFormComponent implements OnInit {
     this.vaccinationForm = this.fb.group({
       id: this.vaccination.id,
       vaccination_nr: [this.vaccination.vaccination_nr, Validators.required],
-      date: [this.vaccination.date, Validators.required],
+      date: [this.vaccination.date, [Validators.required, VaccinationValidators.dateValidator]],
       starttime: [this.vaccination.starttime, [Validators.required,
         Validators.pattern("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]],
       endtime: [this.vaccination.endtime, [Validators.required,
