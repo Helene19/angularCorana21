@@ -16,6 +16,11 @@ h1 span {
   margin-bottom: 25px;
 }
 
+.form-field.disabled {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
 .form-negative_message {
   color: #e02b27;
   font-size: 12px;
