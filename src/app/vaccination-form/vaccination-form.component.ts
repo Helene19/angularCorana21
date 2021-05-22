@@ -65,6 +65,14 @@ export class VaccinationFormComponent implements OnInit {
     this.showSummary = true;
   }
 
+  backToPage() {
+    if(this.isUpdatingVaccination) {
+      this.router.navigateByUrl("/vaccinations/"+this.vaccination.vaccination_nr);
+    } else {
+      this.router.navigateByUrl("/vaccinations");
+    }
+  }
+
   updateErrorMessages() {
 
     this.errors = {};

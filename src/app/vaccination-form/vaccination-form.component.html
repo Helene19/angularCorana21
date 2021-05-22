@@ -54,8 +54,10 @@
       </select>
       <div *ngIf="errors.vaccination_place" class="form-negative_message">{{ errors.vaccination_place }}</div>
     </div>
-
-    <button type="submit" class="form-submit_button" [disabled]="vaccinationForm.invalid">Weiter</button>
+    <div class="form-buttons">
+      <a class="form-back_button" (click)="backToPage()"><< Zurück</a>
+      <button type="submit" class="form-submit_button" [disabled]="vaccinationForm.invalid">Weiter</button>
+    </div>
   </form>
 </div>
 
@@ -101,7 +103,7 @@
     </table>
   </div>
   <div class="summary-buttons">
-    <button class="summary-back_btn" (click)="back()">Zurück</button>
+    <a class="summary-back_btn" (click)="back()"><< Zurück</a>
     <button class="summary-save_btn" (click)="submitVaccination()">Speichern</button>
   </div>
 

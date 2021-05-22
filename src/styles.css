@@ -25,8 +25,7 @@ h1 {
 }
 
 .login-button, .logout-button, .details-back_button, .details-user_is_vaccinated,
-.edit-button, .delete-button, .details-register, .form-submit_button, .summary-back_btn,
-.summary-save_btn {
+.edit-button, .delete-button, .details-register, .form-submit_button, .summary-save_btn{
   font-family: "Open Sans";
   padding: 10px 30px;
   border: none;
@@ -42,9 +41,7 @@ h1 {
 .logout-button:hover, .logout-button:active,
 .details-back_button:hover, .details-back_button:active,
 .details-register:hover, .details-register:active,
-.form-submit_button:hover, .form-submit_button:active,
-.summary-back_btn:hover, .summary-back_btn:active,
-.summary-save_btn:hover, .summary-save_btn:active {
+.form-submit_button:hover, .form-submit_button:active {
   background-color: #AA3B18;
 }
 

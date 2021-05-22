@@ -58,12 +58,17 @@ h1 span {
   width: 40%;
 }
 
-.form-submit_button {
-  margin-left: 50%;
-}
-
 .form-submit_button:disabled {
   opacity: 40%;
+}
+
+.summary-back_btn, .form-back_button {
+  color: #DB3B18;
+}
+
+.summary-back_btn:hover, .summary-back_btn:active,
+.form-back_button:hover, .form-back_button:active {
+  color: #AA3B18;
 }
 
 .summary-table {
@@ -84,16 +89,16 @@ h1 span {
   background-color: #F5A9A3;
 }
 
-.summary-buttons {
+.summary-buttons, .form-buttons {
   margin-top: 30px;
   text-align: center;
 }
 
-.summary-back_btn {
+.summary-back_btn, .form-back_button {
   margin-right: 10px;
 }
 
-.summary-save_btn {
+.summary-save_btn, .form-submit_button {
   margin-left: 10px;
 }
 
