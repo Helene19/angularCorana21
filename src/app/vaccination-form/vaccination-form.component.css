@@ -64,6 +64,8 @@ h1 span {
 
 .summary-back_btn, .form-back_button {
   color: #DB3B18;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .summary-back_btn:hover, .summary-back_btn:active,
@@ -92,10 +94,6 @@ h1 span {
 .summary-buttons, .form-buttons {
   margin-top: 30px;
   text-align: center;
-}
-
-.summary-back_btn, .form-back_button {
-  margin-right: 10px;
 }
 
 .summary-save_btn, .form-submit_button {
