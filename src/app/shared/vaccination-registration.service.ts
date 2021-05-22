@@ -50,8 +50,8 @@ export class VaccinationRegistrationService {
   }
 
   check(vaccinationNr: number): Observable<Boolean> {
-    return this.http.get<Boolean>(`${this.api}/vaccinations/checknr/${vaccinationNr}`)
-      .pipe(catchError(this.errorHandler));
+    return this.http.get<Boolean>(`${this.api}/vaccination/checkNr/${vaccinationNr}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
   editToVaccinated(user: User): Observable<any> {

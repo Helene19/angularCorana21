@@ -45,7 +45,8 @@ export class VaccinationFormComponent implements OnInit {
   initVaccination() {
     this.vaccinationForm = this.fb.group({
       id: this.vaccination.id,
-      vaccination_nr: [this.vaccination.vaccination_nr, Validators.required],
+      vaccination_nr: [this.vaccination.vaccination_nr, [Validators.required],
+        this.isUpdatingVaccination ? null : VaccinationValidators.vaccNrExists(this.vr)],
       date: [this.vaccination.date, [Validators.required, VaccinationValidators.dateValidator]],
       starttime: [this.vaccination.starttime, [Validators.required,
         Validators.pattern("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]],

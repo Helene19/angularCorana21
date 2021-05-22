@@ -8,6 +8,7 @@ export class ErrorMessage {
 
 export const VaccinationFormErrorMessages = [
   new ErrorMessage('vaccination_nr', 'required', 'Es muss eine Impfterminnummer angegeben werden.'),
+  new ErrorMessage('vaccination_nr', 'vaccNrExists', 'Diese Impfnummer existiert bereits.'),
   new ErrorMessage('date', 'required', 'Es muss das Datum des Impftermins angegeben werden.'),
   new ErrorMessage('date', 'dateValidator', 'Das Datum muss in der Zukunft liegen.'),
   new ErrorMessage('starttime', 'required', 'Es muss der Startzeitpunkt des Impftermins angegeben werden.'),
