@@ -19,6 +19,7 @@ export class VaccinationFormComponent implements OnInit {
   vaccinationPlaces: VaccinationPlace[];
   errors: { [key: string]: string } = {};
   isUpdatingVaccination = false;
+  showSummary = false;
 
   constructor(
     private fb: FormBuilder,
@@ -45,8 +46,10 @@ export class VaccinationFormComponent implements OnInit {
       id: this.vaccination.id,
       vaccination_nr: [this.vaccination.vaccination_nr, Validators.required],
       date: [this.vaccination.date, Validators.required],
-      starttime: [this.vaccination.starttime, [Validators.required, Validators.pattern("^[0-2]{1}[0-9]{1}:[0-9]{2}$")]],
-      endtime: [this.vaccination.endtime, [Validators.required, Validators.pattern("^[0-2]{1}[0-9]{1}:[0-9]{2}$")]],
+      starttime: [this.vaccination.starttime, [Validators.required,
+        Validators.pattern("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]],
+      endtime: [this.vaccination.endtime, [Validators.required,
+        Validators.pattern("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")]],
       max_participants: [this.vaccination.max_participants, [Validators.required, Validators.max(25), Validators.min(2)]],
       vaccination_type: [this.vaccination.vaccination_type, Validators.required],
       vaccination_place: [this.vaccination.vaccination_place.vaccination_place_nr, Validators.required]
@@ -57,8 +60,35 @@ export class VaccinationFormComponent implements OnInit {
     this.vr.getAllPlaces().subscribe(res => this.vaccinationPlaces = res);
   }
 
-  submitForm() {
+  nextStep() {
+    this.showSummary = true;
+  }
 
+  updateErrorMessages() {
+
+    this.errors = {};
+
+    for (const message of VaccinationFormErrorMessages) {
+      const control = this.vaccinationForm.get(message.forControl);
+
+      if (
+        control &&
+        control.dirty &&
+        control.invalid &&
+        control.errors[message.forValidator] &&
+        !this.errors[message.forControl]
+      ) {
+        this.errors[message.forControl] = message.text;
+      }
+    }
+  }
+
+  back() {
+    this.vaccination.vaccination_place.vaccination_place_nr = this.vaccinationForm.value.vaccination_place;
+    this.showSummary = false;
+  }
+
+  submitVaccination() {
     const vaccination: Vaccination = VaccinationFactory.fromObject(this.vaccinationForm.value);
     vaccination.vaccination_place = this.vaccinationForm.value.vaccination_place;
     vaccination.vaccination_users = this.vaccination.vaccination_users;
@@ -78,25 +108,6 @@ export class VaccinationFormComponent implements OnInit {
         this.router.navigate(["../vaccinations"], { relativeTo: this.route
         });
       });
-    }
-  }
-
-  updateErrorMessages() {
-
-    this.errors = {};
-
-    for (const message of VaccinationFormErrorMessages) {
-      const control = this.vaccinationForm.get(message.forControl);
-
-      if (
-        control &&
-        control.dirty &&
-        control.invalid &&
-        control.errors[message.forValidator] &&
-        !this.errors[message.forControl]
-      ) {
-        this.errors[message.forControl] = message.text;
-      }
     }
   }
 

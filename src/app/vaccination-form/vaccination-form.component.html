@@ -1,7 +1,10 @@
-<div class="form">
-  <h1>Impftermin erstellen</h1>
+<div *ngIf="!showSummary" class="form">
+  <h1>Impftermin
+    <span *ngIf="!isUpdatingVaccination">erstellen</span>
+    <span *ngIf="isUpdatingVaccination">bearbeiten</span>
+  </h1>
   <form class="form-form" [formGroup]="vaccinationForm"
-        (ngSubmit)="submitForm()">
+        (ngSubmit)="nextStep()">
     <input type="hidden" name="id">
 
     <div class="form-field" [class.disabled]="isUpdatingVaccination">
@@ -44,7 +47,7 @@
       <label>Impfort:</label>
       <select formControlName="vaccination_place" class="select-place">
         <option *ngFor="let vaccination_place of vaccinationPlaces" [value]="vaccination_place.vaccination_place_nr"
-                [selected]="vaccination_place.vaccination_place_nr === vaccination.vaccination_place.vaccination_place_nr">
+                [selected]="vaccination_place.vaccination_place_nr == vaccination.vaccination_place.vaccination_place_nr">
           {{ vaccination_place.vaccination_place_nr }}, {{ vaccination_place.state}}, {{ vaccination_place.city }},
           {{ vaccination_place.street }} {{ vaccination_place.streetnr }}
         </option>
@@ -52,7 +55,56 @@
       <div *ngIf="errors.vaccination_place" class="form-negative_message">{{ errors.vaccination_place }}</div>
     </div>
 
-    <button type="submit" class="form-submit_button" [disabled]="vaccinationForm.invalid">Speichern</button>
+    <button type="submit" class="form-submit_button" [disabled]="vaccinationForm.invalid">Weiter</button>
   </form>
 </div>
+
+<div *ngIf="showSummary" class="summary">
+  <h1>Zusammenfassung des
+    <span *ngIf="isUpdatingVaccination"> bearbeiteten </span>
+    <span *ngIf="!isUpdatingVaccination"> neu erstellten </span>
+    Impftermins
+  </h1>
+  <div class="summary-container">
+    <table class="summary-table">
+      <tr>
+        <td>Impfnummer:</td>
+        <td>{{vaccinationForm.value.vaccination_nr}}</td>
+      </tr>
+      <tr>
+        <td>Impfdatum:</td>
+        <td>{{vaccinationForm.value.date}}</td>
+      </tr>
+      <tr>
+        <td>Startzeitpunkt des Impftermins:</td>
+        <td>{{vaccinationForm.value.starttime}}</td>
+      </tr>
+      <tr>
+        <td>Endzeitpunkt des Impftermins:</td>
+        <td>{{vaccinationForm.value.endtime}}</td>
+      </tr>
+      <tr>
+        <td>maximale Anzahl an Teilnehmer*innen:</td>
+        <td>{{vaccinationForm.value.max_participants}}</td>
+      </tr>
+      <tr>
+        <td>Impfstoff:</td>
+        <td>{{vaccinationForm.value.vaccination_type}}</td>
+      </tr>
+      <tr *ngFor="let place of vaccinationPlaces" id="summary-vacc_place">
+        <td *ngIf="place.vaccination_place_nr == vaccinationForm.value.vaccination_place">Impfort:</td>
+        <td *ngIf="place.vaccination_place_nr == vaccinationForm.value.vaccination_place">
+          {{ place.vaccination_place_nr }}, {{ place.state }}, {{ place.city }},
+          {{ place.street }} {{ place.streetnr }}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="summary-buttons">
+    <button class="summary-back_btn" (click)="back()">Zurück</button>
+    <button class="summary-save_btn" (click)="submitVaccination()">Speichern</button>
+  </div>
+
+</div>
+
 
