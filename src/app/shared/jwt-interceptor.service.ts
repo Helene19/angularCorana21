@@ -6,18 +6,19 @@ import {
   HttpInterceptor,
   HttpRequest, HttpResponse
 } from "@angular/common/http";
-import { tap } from "rxjs/operators";
-import { Observable } from "rxjs";
+import {catchError, tap} from "rxjs/operators";
+import {Observable, throwError} from "rxjs";
 
 @Injectable()
 export class JwtInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(tap((event: HttpEvent<any>) => { }, (err: any) => {
+    return next.handle(request).pipe( catchError(err => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {
-          alert("E-Mail-Adresse und/oder Passwort sind falsch!");
+          return throwError("E-Mail und/oder Passwort sind falsch!");
         }
+
       }
     }));
   }

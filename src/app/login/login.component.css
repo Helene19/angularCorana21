@@ -9,6 +9,16 @@
   text-align: center;
 }
 
+.login-error_message {
+  padding: 10px 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  color: #721c24;
+  background-color: #f8d7da;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
 .login-form {
   margin-top: 40px;
 }

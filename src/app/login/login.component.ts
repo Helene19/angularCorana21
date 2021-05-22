@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   user: User;
+  error: '';
 
   constructor(
     private fb: FormBuilder,
@@ -43,7 +44,10 @@ export class LoginComponent implements OnInit {
         this.authService.setSessionStorage((res as
           Response).access_token);
         this.router.navigateByUrl("/");
-      });
+      },
+        error => {
+          this.error = error;
+        });
 
     }
   }
@@ -57,7 +61,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser() {
-    if(this.user != undefined) {
+    if (this.user != undefined) {
       return true;
     } else {
       return false;
