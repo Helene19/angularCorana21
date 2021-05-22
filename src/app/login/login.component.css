@@ -97,7 +97,6 @@
 
 .logout-status {
   margin-top: 20px;
-  margin-bottom: 40px;
   display: flex;
   align-items: center;
 }
@@ -137,6 +136,18 @@
   font-size: 12px;
   background-color: rgb(229, 183, 76, 0.15);
   font-weight: bold;
+}
+
+.logout-vaccination {
+  margin-top: 25px;
+}
+
+.logout-vaccination p {
+  margin-top: 5px;
+}
+
+.logout-button {
+  margin-top: 40px;
 }
 
 @media (max-width: 991.98px) {

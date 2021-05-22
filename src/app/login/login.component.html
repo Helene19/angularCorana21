@@ -68,6 +68,21 @@
       <p class="logout-status_not_vaccinated" *ngIf="user.vaccinated">Geimpft</p>
     </div>
 
+    <div class="logout-vaccination" *ngIf="!user.vaccinated && (user.user_vaccinations.length > 0)">
+      <h3>Impftermin:</h3>
+      <p>Impfung: #{{ user.user_vaccinations[0].vaccination_nr }}</p>
+      <p>Impfstoff: {{ user.user_vaccinations[0].vaccination_type }}</p>
+      <p>Wann: Zwischen {{ user.user_vaccinations[0].starttime }} und {{ user.user_vaccinations[0].endtime }}</p>
+      <p *ngFor="let place of vaccinationPlaces">
+        <span *ngIf="place.vaccination_place_nr == user.user_vaccinations[0].vaccination_place">
+          Wo: {{ place.state }}, {{ place.city }}, {{ place.postcode }},
+          {{ place.street }} {{ place.streetnr }}
+        </span>
+      </p>
+      <p>
+      </p>
+    </div>
+
     <button type="button" class="logout-button" (click)="logout()">Logout</button>
   </div>
 </div>

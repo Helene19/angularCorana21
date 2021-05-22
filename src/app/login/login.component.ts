@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AuthenticationService } from "../shared/authentication.service";
 import { User } from "../shared/user";
 import { VaccinationRegistrationService } from "../shared/vaccination-registration.service";
+import { VaccinationPlace } from "../shared/vaccination-place";
 
 interface Response {
   access_token: string;
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user: User;
   error: '';
+  vaccinationPlaces: VaccinationPlace[];
 
   constructor(
     private fb: FormBuilder,
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
     if(this.authService.isLoggedIn()) {
       this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
     }
+    this.vr.getAllPlaces().subscribe(res => this.vaccinationPlaces = res);
   }
 
   login() {
