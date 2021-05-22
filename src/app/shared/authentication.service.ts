@@ -6,6 +6,7 @@ interface Token {
   exp: number;
   user: {
     id: string;
+    admin: string;
   };
 }
 
@@ -28,18 +29,22 @@ export class AuthenticationService {
     return Number.parseInt(sessionStorage.getItem("userId"));
   }
 
+  public isAdmin() {
+    return sessionStorage.getItem("userAdmin");
+  }
+
   public setSessionStorage(token: string) {
     const decodedToken = jwt_decode(token) as Token;
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("userId", decodedToken.user.id);
-    window.location.replace('/home');
+    sessionStorage.setItem("userAdmin", decodedToken.user.admin);
   }
 
   logout() {
     this.http.post(`${this.api}/logout`, {});
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("userId");
-    window.location.replace('/login');
+    sessionStorage.removeItem("userAdmin");
   }
 
   public isLoggedIn() {

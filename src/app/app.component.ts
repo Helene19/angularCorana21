@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from "./shared/authentication.service";
 import { VaccinationRegistrationService } from "./shared/vaccination-registration.service";
-import { User } from "./shared/user";
 
 @Component({
   selector: 'bs-root',
@@ -9,18 +8,12 @@ import { User } from "./shared/user";
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
-  user: User;
+  userAdmin = null;
 
   constructor(private authService: AuthenticationService,
               private vr: VaccinationRegistrationService) {
-  }
-
-  ngOnInit() {
-    if(this.isLoggedIn()) {
-      this.vr.getUser(this.authService.getCurrentUserId()).subscribe(v => this.user = v);
-    }
   }
 
   isLoggedIn() {
@@ -36,13 +29,11 @@ export class AppComponent implements OnInit {
   }
 
   isAdmin() {
+    this.userAdmin = this.authService.isAdmin();
     if(this.isLoggedIn()) {
-      if(this.user != undefined) {
-        return this.user.admin;
-      } else {
-        return false;
+      if(this.userAdmin == "1") {
+        return true;
       }
-    } else {
       return false;
     }
   }
