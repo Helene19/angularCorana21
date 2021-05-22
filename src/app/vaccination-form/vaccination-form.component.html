@@ -55,7 +55,7 @@
       <div *ngIf="errors.vaccination_place" class="form-negative_message">{{ errors.vaccination_place }}</div>
     </div>
     <div class="form-buttons">
-      <a class="form-back_button" (click)="backToPage()"><< Zurück</a>
+      <a class="form-back_button" (click)="backToPage()" *ngIf="isUpdatingVaccination"><< Zurück</a>
       <button type="submit" class="form-submit_button" [disabled]="vaccinationForm.invalid">Weiter</button>
     </div>
   </form>
