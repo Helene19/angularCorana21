@@ -64,7 +64,7 @@ h1 span {
 }
 
 .form-submit_button:disabled {
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .summary-back_btn, .form-back_button {
